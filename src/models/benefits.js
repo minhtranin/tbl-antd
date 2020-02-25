@@ -14,7 +14,7 @@ export default {
       *fetch({ payload }, { call, put }) {  // eslint-disable-line
         const response = yield call(query);
         yield put({ type: 'list', payload: response.data });
-        return response;
+        return response.data;
       },
     },
 

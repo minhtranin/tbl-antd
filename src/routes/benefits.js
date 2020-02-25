@@ -59,8 +59,15 @@ class EditableCell extends React.Component {
 }
 
 class EditableTable extends React.Component {
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch({
+      type: "benefits/fetch"
+    })
+  }
   constructor(props) {
     super(props);
+
     this.state = { data, editingKey: '' };
     this.columns = [
       {
@@ -87,6 +94,7 @@ class EditableTable extends React.Component {
         render: (text, record) => {
           const { editingKey } = this.state;
           const editable = this.isEditing(record);
+          console.log(editable)
           return editable ? (
             <span>
               <EditableContext.Consumer>
