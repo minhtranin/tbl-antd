@@ -5,8 +5,8 @@ const fs = require('fs')
 app.use(cors())
 
 
-app.listen(8303, function () {
-  console.log('CORS-enabled web server listening on port 8303')
+app.listen(8304, function () {
+  console.log('CORS-enabled web server listening on port 8304')
 })
 
 // get
