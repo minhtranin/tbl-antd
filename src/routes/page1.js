@@ -1,10 +1,16 @@
 import { Component } from 'react';
-export default class Page1 extends Component{
+import { connect } from 'dva';
+    class Page1 extends Component{
     componentDidMount(){
         console.log('page 1');
+        const { dispatch } = this.props;
         window.addEventListener("beforeunload", () => {
             const { pathname } = window.location;
             console.log(pathname);
+            dispatch({
+                type: "benefits/storePath",
+                payload: "okqkwokeqwke",
+            })
           });
           window.addEventListener("turbolinks:before-render", e => {
             e.preventDefault();
@@ -12,6 +18,7 @@ export default class Page1 extends Component{
           });
     }
     render(){
+        console.log(this.props.benefits);
         const { history } = this.props;
         return<>
         <div>
@@ -21,3 +28,4 @@ export default class Page1 extends Component{
         </>
     }
 }
+export default connect((benefits)=>({benefits}))(Page1);
